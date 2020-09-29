@@ -1,2 +1,3 @@
+include ':redux'
 include ':app'
 rootProject.name = "Android Redux Sample"
