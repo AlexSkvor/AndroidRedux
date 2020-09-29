@@ -35,7 +35,7 @@ abstract class Machine<WISH, RESULT, STATE : Any> : ViewModel(), CoroutineScope 
         onStart()
     }
 
-    fun performWish(wish: WISH) {
+    internal fun performWish(wish: WISH) {
         synchronized(this) {
             if (isMainThread()) onWish(wish, state!!)
             else onMain { onWish(wish, state!!) }
