@@ -11,7 +11,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        initLogging() // TODO lifecycle callbacks
+        initLogging()
         initDi()
         registerActivityLifecycleCallbacks(ActivityLifecycleLogger)
     }
