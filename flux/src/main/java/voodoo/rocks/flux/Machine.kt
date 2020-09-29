@@ -26,7 +26,7 @@ abstract class Machine<WISH, RESULT, STATE : Any> : ViewModel(), CoroutineScope 
     protected abstract val initialState: STATE
 
     @MainThread
-    protected abstract fun onWish(wish: WISH, oldState: STATE)
+    protected abstract fun onWish(wish: WISH, oldState: STATE) // TODO should change state
 
     @MainThread
     protected abstract fun onResult(res: RESULT, oldState: STATE): STATE
