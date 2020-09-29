@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/screenTitle"
+        style="@style/BaseTextView"
+        android:text="@string/currentNumberTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/currentValue"
+        style="@style/BaseTextView"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/screenTitle"
+        tools:text="839476" />
+
+    <TextView
+        android:id="@+id/youCanNavigateTo"
+        style="@style/BaseTextView"
+        android:text="@string/youCanNavigateTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentValue" />
+
+    <TextView
+        android:id="@+id/forwardNumber1"
+        style="@style/BaseTextView"
+        android:layout_width="0dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@id/forwardNumber2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/youCanNavigateTo"
+        tools:text="12424" />
+
+    <TextView
+        android:id="@+id/forwardNumber2"
+        style="@style/BaseTextView"
+        android:layout_width="0dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@id/forwardNumber3"
+        app:layout_constraintStart_toEndOf="@id/forwardNumber1"
+        app:layout_constraintTop_toBottomOf="@id/youCanNavigateTo"
+        tools:text="3" />
+
+    <TextView
+        android:id="@+id/forwardNumber3"
+        style="@style/BaseTextView"
+        android:layout_width="0dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/forwardNumber2"
+        app:layout_constraintTop_toBottomOf="@id/youCanNavigateTo"
+        tools:text="56" />
+
+    <TextView
+        android:id="@+id/youCanBackTo"
+        style="@style/BaseTextView"
+        android:text="@string/youCanBackTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/forwardNumber1" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/youCanBackTo"
+        tools:listitem="@layout/item_number" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

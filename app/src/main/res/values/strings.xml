@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Android Flux Sample</string>
+
+    <string name="numberItem">Back to Number %d</string>
+    <string name="currentNumberTitle">Current number is</string>
+    <string name="youCanNavigateTitle">You can navigate to:</string>
+    <string name="youCanBackTitle">You can navigate back to:</string>
 </resources>
