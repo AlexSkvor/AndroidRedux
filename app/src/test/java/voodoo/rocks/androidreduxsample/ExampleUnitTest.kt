@@ -1,4 +1,4 @@
-package com.alexskvor.androidreduxsample
+package voodoo.rocks.androidreduxsample
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.alexskvor.androidreduxsample
+package voodoo.rocks.androidreduxsample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
