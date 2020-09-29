@@ -1,4 +1,4 @@
-package voodoo.rocks.redux.livedata
+package voodoo.rocks.flux.livedata
 
 import androidx.lifecycle.LiveData
 

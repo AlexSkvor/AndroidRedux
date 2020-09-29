@@ -1,4 +1,4 @@
-package voodoo.rocks.redux
+package voodoo.rocks.flux
 
 import org.junit.Test
 

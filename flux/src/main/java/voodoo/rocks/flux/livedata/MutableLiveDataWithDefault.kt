@@ -1,4 +1,4 @@
-package voodoo.rocks.redux.livedata
+package voodoo.rocks.flux.livedata
 
 class MutableLiveDataWithDefault<T: Any>(default: T) : LiveDataWithDefault<T>(default) {
 

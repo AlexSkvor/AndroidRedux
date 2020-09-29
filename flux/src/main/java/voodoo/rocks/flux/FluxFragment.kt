@@ -1,4 +1,4 @@
-package voodoo.rocks.redux
+package voodoo.rocks.flux
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,12 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
-import voodoo.rocks.redux.interfaces.BackPressedHolder
-import voodoo.rocks.redux.interfaces.UserNotifier
-import voodoo.rocks.redux.interfaces.ViewModelFactoryProvider
-import voodoo.rocks.redux.interfaces.getImplementation
+import voodoo.rocks.flux.interfaces.BackPressedHolder
+import voodoo.rocks.flux.interfaces.UserNotifier
+import voodoo.rocks.flux.interfaces.ViewModelFactoryProvider
+import voodoo.rocks.flux.interfaces.getImplementation
 
-abstract class ReduxFragment<W, S : Any> : Fragment(), BackPressedHolder {
+abstract class FluxFragment<W, S : Any> : Fragment(), BackPressedHolder {
 
     abstract val machine: Machine<W, *, S>
     abstract fun onScreenInit()

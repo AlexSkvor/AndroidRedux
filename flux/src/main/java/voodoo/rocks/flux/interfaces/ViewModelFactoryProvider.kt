@@ -1,4 +1,4 @@
-package voodoo.rocks.redux.interfaces
+package voodoo.rocks.flux.interfaces
 
 import androidx.lifecycle.ViewModelProvider
 

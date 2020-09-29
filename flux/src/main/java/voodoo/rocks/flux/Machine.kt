@@ -1,4 +1,4 @@
-package voodoo.rocks.redux
+package voodoo.rocks.flux
 
 import androidx.annotation.CallSuper
 import androidx.annotation.MainThread
@@ -9,8 +9,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
-import voodoo.rocks.redux.livedata.LiveDataWithDefault
-import voodoo.rocks.redux.livedata.MutableLiveDataWithDefault
+import voodoo.rocks.flux.livedata.LiveDataWithDefault
+import voodoo.rocks.flux.livedata.MutableLiveDataWithDefault
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.*
 import timber.log.Timber
