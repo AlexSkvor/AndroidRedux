@@ -1,4 +1,4 @@
-package voodoo.rocks.androidreduxsample
+package voodoo.rocks.androidfluxsample
 
 import org.junit.Test
 
