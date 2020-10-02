@@ -26,7 +26,7 @@ abstract class Machine<WISH, RESULT, STATE : Any> : ViewModel(), CoroutineScope 
     protected abstract val initialState: STATE
 
     @MainThread
-    protected abstract fun onWish(wish: WISH, oldState: STATE) // TODO should change state
+    protected abstract fun onWish(wish: WISH, oldState: STATE): STATE
 
     @MainThread
     protected abstract fun onResult(res: RESULT, oldState: STATE): STATE
@@ -37,8 +37,8 @@ abstract class Machine<WISH, RESULT, STATE : Any> : ViewModel(), CoroutineScope 
 
     internal fun performWish(wish: WISH) {
         synchronized(this) {
-            if (isMainThread()) onWish(wish, state!!)
-            else onMain { onWish(wish, state!!) }
+            if (isMainThread()) state = onWish(wish, state!!)
+            else onMain { state = onWish(wish, state!!) }
         }
     }
 

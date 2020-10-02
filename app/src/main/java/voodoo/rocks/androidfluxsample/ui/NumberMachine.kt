@@ -21,11 +21,7 @@ class NumberMachine @Inject constructor(
         object NavigatePlus : Wish()
     }
 
-    sealed class Result {
-        data class InitialData(val data: ScreenData) : Result()
-        data class NavigateTo(val number: Int) : Result()
-        data class BackTo(val index: Int) : Result()
-    }
+    object Result
 
     data class State(
         val screenData: ScreenData? = null
@@ -34,24 +30,30 @@ class NumberMachine @Inject constructor(
     override val initialState: State = State()
 
     override fun onWish(wish: Wish, oldState: State) = when (wish) {
-        is Wish.InitialData -> pushResult(Result.InitialData(wish.data))
-        is Wish.BackTo -> pushResult(Result.BackTo(wish.index))
-        Wish.NavigateMinus -> pushResult(Result.NavigateTo(oldState.screenData!!.number - 1))
-        Wish.NavigateSame -> pushResult(Result.NavigateTo(oldState.screenData!!.number))
-        Wish.NavigatePlus -> pushResult(Result.NavigateTo(oldState.screenData!!.number + 1))
+        is Wish.InitialData -> State(wish.data)
+        is Wish.BackTo -> oldState.also {
+            val old = requireNotNull(it.screenData)
+            backTo(wish.index, old)
+        }
+        Wish.NavigateMinus -> oldState.also {
+            val old = requireNotNull(it.screenData)
+            navigateTo(old.number - 1, old)
+        }
+        Wish.NavigateSame -> oldState.also {
+            val old = requireNotNull(it.screenData)
+            navigateTo(old.number, old)
+        }
+        Wish.NavigatePlus -> oldState.also {
+            val old = requireNotNull(it.screenData)
+            navigateTo(old.number + 1, old)
+        }
     }
 
-    override fun onResult(res: Result, oldState: State): State = when (res) {
-        is Result.InitialData -> State(res.data)
-        is Result.NavigateTo -> oldState.also {
-            val old = requireNotNull(it.screenData)
-            val newData = ScreenData(res.number, old.previousNumbers + old.number)
-            router.navigateTo(Screens.NumberScreen(newData))
-        }
-        is Result.BackTo -> oldState.also {
-            val old = requireNotNull(it.screenData)
-            backTo(res.index, old)
-        }
+    override fun onResult(res: Result, oldState: State): State = oldState
+
+    private fun navigateTo(next: Int, old: ScreenData) {
+        val newData = ScreenData(next, old.previousNumbers + old.number)
+        router.navigateTo(Screens.NumberScreen(newData))
     }
 
     override fun onBackPressed() {
